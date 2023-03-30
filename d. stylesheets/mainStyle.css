@@ -17,6 +17,9 @@
     overflow: hidden;
 }
 
-#pixel{
+#pixel {
     position: absolute;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 25%;
 }
