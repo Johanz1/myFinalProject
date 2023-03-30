@@ -1,9 +1,22 @@
 .navbar{
     position: absolute;
-    display: contents;
+    display:flex;
     width: 100%;
     text-align: center;
 }
+
 .logo{
     padding-left: 20px;
+}
+
+.glitchEff{
+    position: relative;
+    width: 100%;
+    background: url('b. images/SecretIGO.png') 0 0 no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#pixel{
+    position: absolute;
 }
