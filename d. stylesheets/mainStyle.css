@@ -1,0 +1,9 @@
+.navbar{
+    position: absolute;
+    display: contents;
+    width: 100%;
+    text-align: center;
+}
+.logo{
+    padding-left: 20px;
+}
