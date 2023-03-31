@@ -19,7 +19,23 @@
 
 #pixel {
     position: absolute;
-    width: 2vw;
-    height: 2vw;
-    border-radius: 25%;
+    width: 3vw;
+    height: 3vw;
+    background-color: black;
+    z-index: 10;
+}
+
+.box{
+    position: absolute;
+    background-color: red;
+}
+
+.box0{
+    position: absolute;
+    background-color: #FFF;
+}
+
+.box1{
+    position: absolute;
+    background-color: #000;
 }

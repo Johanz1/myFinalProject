@@ -1,16 +1,67 @@
-const pixel = document.getElementById('pixel');
+let pixel = document.getElementById('pixel');
+
+let count = 2;
+for (let i = 0; i < count; i++){
+    let glitchBox = document.createElement('div')
+    glitchBox.className = 'box';
+    pixel.appendChild(glitchBox);
+}
+
+setInterval(function(){
+    let glitch = document.getElementsByClassName('box');
+    for(let i = 0; i < glitch.length; i++){
+        glitch[i].style.left = Math.floor(Math.random()*100) + 'px';
+        glitch[i].style.top = Math.floor(Math.random()*-20) + 'px'
+        glitch[i].style.width = Math.floor(Math.random()*30) + 'px';
+        glitch[i].style.height = Math.floor(Math.random()*70) + 'px';
+    }
+}, 300)
+
+count = 3;
+for (let i = 0; i < count; i++){
+    let glitchBox = document.createElement('div')
+    glitchBox.className = 'box0';
+    pixel.appendChild(glitchBox);
+}
+
+setInterval(function(){
+    let glitch = document.getElementsByClassName('box0');
+    for(let i = 0; i < glitch.length; i++){
+        glitch[i].style.left = Math.floor(Math.random()*30) + 'px';
+        glitch[i].style.top = Math.floor(Math.random()*20) + 'px'
+        glitch[i].style.width = Math.floor(Math.random()*30) + 'px';
+        glitch[i].style.height = Math.floor(Math.random()*30) + 'px';
+    }
+}, 300)
+
+count = 3;
+for (let i = 0; i < count; i++){
+    let glitchBox = document.createElement('div')
+    glitchBox.className = 'box1';
+    pixel.appendChild(glitchBox);
+}
+
+setInterval(function(){
+    let glitch = document.getElementsByClassName('box1');
+    for(let i = 0; i < glitch.length; i++){
+        glitch[i].style.left = Math.floor(Math.random()*30) + 'px';
+        glitch[i].style.top = Math.floor(Math.random()*-20) + 'px'
+        glitch[i].style.width = Math.floor(Math.random()*20) + 'px';
+        glitch[i].style.height = Math.floor(Math.random()*10) + 'px';
+    }
+}, 300)
 
 let x = 0;
 let y = 0;
 let lastX = 0;
 let lastY = 0;
 let opacity = 1;
-const fadeOut = 0.025;
+const fadeOut = 0.02;
 
 const initSpeed = 7;
 let speed = initSpeed;
 const maxSpeed = 100;
-const acceleration = 0.7;
+const acceleration = 2;
 
 let isAnimating = false;
 
@@ -19,6 +70,7 @@ document.addEventListener('mousemove', (event) => {
 });
 
 function startAnimation() {
+
     if (!isAnimating) {
         
         isAnimating = true;
@@ -32,7 +84,7 @@ function startAnimation() {
             
             if (opacity <= 0) {
                 pixel.hidden;
-                setTimeout(startAnimation, 600);
+                setTimeout(startAnimation, 300);
             }
         
             if (lastY + y + pixel.offsetHeight >= window.innerHeight) {
@@ -43,7 +95,7 @@ function startAnimation() {
                 speed = initSpeed;
                 clearInterval(intervalId);
                 isAnimating = false;
-                
+                setTimeout(startAnimation, 300);
             }
         }, 16);
     }
