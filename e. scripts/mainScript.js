@@ -51,6 +51,23 @@ setInterval(function(){
     }
 }, 300)
 
+count = 3;
+for (let i = 0; i < count; i++){
+    let glitchBox = document.createElement('div')
+    glitchBox.className = 'box2';
+    pixel.appendChild(glitchBox);
+}
+
+setInterval(function(){
+    let glitch = document.getElementsByClassName('box2');
+    for(let i = 0; i < glitch.length; i++){
+        glitch[i].style.left = Math.floor(Math.random()*-40) + 'px';
+        glitch[i].style.top = Math.floor(Math.random()*-100) + 'px'
+        glitch[i].style.width = Math.floor(Math.random()*40) + 'px';
+        glitch[i].style.height = Math.floor(Math.random()*30) + 'px';
+    }
+}, 300)
+
 let x = 0;
 let y = 0;
 let lastX = 0;
