@@ -16,3 +16,16 @@
     padding-right: 20px;
     color: rgb(255,255,255);
 }
+
+.information {
+    font-size: large;
+}
+
+#country {
+    font-size: xx-large;
+}
+
+button {
+    padding: 10px;
+    opacity: 40%;
+}

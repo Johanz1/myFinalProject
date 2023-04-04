@@ -7,7 +7,7 @@ function initMap() {
     }).addTo(map);
 
     let marker = null;
-    // initial location will be based on user location
+    // initial location of the marker will be based on user location
     fetch('https://api.ipify.org?format=json')
         .then(response => response.json())
         .then(data => {
@@ -17,8 +17,10 @@ function initMap() {
             .then(data => {
                 const lat = data.lat;
                 const lon = data.lon;
+                const region = data.region;
                 const country = data.country;
                 const city = data.city;
+                const street = data.road;
                 marker = L.marker([lat, lon]).addTo(map);
                 marker.bindPopup(`Home <strong>${city}, <i>${country}</i></strong>`).openPopup();
             });
@@ -40,17 +42,26 @@ function initMap() {
         fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            const countryName = data.geonames[0].countryName;
-            const regionName = data.geonames[0].regionName;
-            const cityName = data.geonames[0].name;
-            const streetName = data.geonames[0].streetName;
-            marker = L.marker([lat, lng]).addTo(map);
-            marker.bindPopup(`<strong>${cityName}, <i>${countryName}</i></strong>`).openPopup();
-
-            document.getElementById("country").innerHTML = `Country: ${countryName}`;
-            document.getElementById("region").innerHTML = `Region: ${regionName}`;
-            document.getElementById("city").innerHTML = `City: ${cityName}`;
-            document.getElementById("street").innerHTML = `Street: ${streetName}`;
+            const countryName = data.geonames[0].countryName || "Unknown Country";
+            const regionName = data.geonames[0].adminName1 || "Unknown Region";
+            const provinceName = data.geonames[0].adminName2 || "Unknown Province";
+            const cityName = data.geonames[0].name || "Unknown City";
+            const streetName = data.geonames[0].streetName || "Unknown Street";
+            const timezoneUrl = `http://api.timezonedb.com/v2.1/get-time-zone?key=PETSBZ6QV585&format=json&by=position&lat=${lat}&lng=${lng}`;
+            fetch(timezoneUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const timezone = data.zoneName || "Unknown Timezone";
+                    marker = L.marker([lat, lng]).addTo(map);
+                    marker.bindPopup(`<strong>${cityName}, <i>${countryName}</i></strong>`).openPopup();
+                
+                    document.getElementById("country").innerHTML = `${countryName}`;
+                    document.getElementById("region").innerHTML = `${regionName}`;
+                    document.getElementById("province").innerHTML = `${provinceName}`;
+                    document.getElementById("city").innerHTML = `${cityName}`;
+                    document.getElementById("street").innerHTML = `${streetName}`;
+                    document.getElementById("timezone").innerHTML = `${timezone}`;
+                });
         });
     });
 }

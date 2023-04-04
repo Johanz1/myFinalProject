@@ -4,7 +4,7 @@
         <title>MAP API try</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <link rel="stylesheet" href="../d.stylesheets/MAPtry.css">
         <script src="../e.scripts/MAPtry.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
@@ -17,13 +17,29 @@
         <div class="box_details">
             <h1>Information</h1>
             <div class="information">
-                <span id="Country">.</span><br>
-                <span id="Region">.</span><br>
-                <span id="City">.</span><br>
-                <span id="Street">.</span>
+                <span id="country">.</span><br>
+                <hr>
+                Region<br>
+                <span id="region">.</span><br><br>
+                Province<br>
+                <span id="province">.</span><br><br>
+                City<br>
+                <span id="city">.</span><br><br>
+                Street<br>
+                <span id="street">.</span><br><br>
+                Timezone<br>
+                <span id="timezone">.</span><br><br>
+
+                click anywhere on the map to display details!<br><br>
             </div>
+            <a href="../main.html">
+                <button>
+                    Return to homepage
+                </button>
+            </a>
         </div>
         <div id="map"></div>
+        
         
     </body>
 </html>
