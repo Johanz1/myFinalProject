@@ -12,8 +12,8 @@ setInterval(function(){
     for(let i = 0; i < glitch.length; i++){
         glitch[i].style.left = Math.floor(Math.random()*100) + 'px';
         glitch[i].style.top = Math.floor(Math.random()*-20) + 'px'
-        glitch[i].style.width = Math.floor(Math.random()*30) + 'px';
-        glitch[i].style.height = Math.floor(Math.random()*70) + 'px';
+        glitch[i].style.width = Math.floor(Math.random()*5) + 'vw';
+        glitch[i].style.height = Math.floor(Math.random()*20) + 'vh';
     }
 }, 300)
 

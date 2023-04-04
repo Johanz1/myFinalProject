@@ -24,7 +24,10 @@
     background-color: rgb(0, 0, 255);
     z-index: 10;
     /* animation: shake 2s 3; */ 
-    /* understanding that shake is my animation name, will run for a duration of 2s, and will occur 3 times */
+    /*
+        understanding that shake is my animation name, will run for a duration of 2s, and will occur 3 times
+        but then again it doesn't shake while falling down. I'll try to do something about this
+    */
 }
 
 .box{
